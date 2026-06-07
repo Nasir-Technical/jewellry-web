@@ -49,6 +49,26 @@
 :root {
   --background: #050505;
   --foreground: #ffffff;
+
+  /* Layout */
+  --section-spacing: 8rem;
+  --container-padding: 1.5rem;
+  --nav-height: 5rem;
+
+  /* Effects */
+  --gold-glow: 0 0 15px rgba(212, 175, 55, 0.3);
+  --luxury-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-blur: 10px;
+
+  /* Motion */
+  --ease-luxury: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-smooth: cubic-bezier(0.76, 0, 0.24, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-cinematic: 1200ms;
 }
 
 body {
@@ -72,9 +92,27 @@ h6 {
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}
+
+.section-spacing {
+  padding-block: var(--section-spacing);
+}
+
+.text-luxury-eyebrow {
+  font-family: var(--font-cormorant);
+  font-style: italic;
+  letter-spacing: 0.05em;
+  color: var(--color-gold-500);
+}
+
+.text-luxury-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
 }
 
 .gold-gradient {
@@ -89,7 +127,7 @@ h6 {
 }
 
 .luxury-shadow {
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--luxury-shadow);
 }
 
 .gold-border-glow {

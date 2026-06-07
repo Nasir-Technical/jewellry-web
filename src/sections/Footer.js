@@ -2,65 +2,129 @@
 
 import Link from "next/link";
 import { Facebook, Instagram, Twitter, Mail } from "@/components/Icons";
+import { Input } from "@/components/ui";
+import { ROUTES, ANCHORS } from "@/constants/routes";
 
 export default function Footer() {
-    return (
-        <footer className="bg-matte-black pt-32 pb-12 border-t border-gold-500/10">
-            <div className="container mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
-                    {/* Brand Info */}
-                    <div className="md:col-span-2">
-                        <h2 className="text-4xl font-serif gold-text-gradient tracking-widest uppercase mb-8">Aurelia</h2>
-                        <p className="text-gold-100/50 font-cormorant text-lg max-w-sm mb-8 leading-relaxed">
-                            Curating brilliance since 1924. We are dedicated to the pursuit of beauty, quality, and the world's most exceptional treasures.
-                        </p>
-                        <div className="flex space-x-6">
-                            <Link href="#" className="text-gold-500 hover:text-gold-300 transition-colors"><Instagram size={20} /></Link>
-                            <Link href="#" className="text-gold-500 hover:text-gold-300 transition-colors"><Facebook size={20} /></Link>
-                            <Link href="#" className="text-gold-500 hover:text-gold-300 transition-colors"><Twitter size={20} /></Link>
-                        </div>
-                    </div>
-
-                    {/* Quick Links */}
-                    <div>
-                        <h4 className="text-white font-serif text-xl mb-6">Maison</h4>
-                        <ul className="space-y-4">
-                            <li><Link href="#" className="text-gold-100/40 hover:text-gold-500 text-xs uppercase tracking-widest transition-colors font-sans">Our Story</Link></li>
-                            <li><Link href="#" className="text-gold-100/40 hover:text-gold-500 text-xs uppercase tracking-widest transition-colors font-sans">Artisanship</Link></li>
-                            <li><Link href="#" className="text-gold-100/40 hover:text-gold-500 text-xs uppercase tracking-widest transition-colors font-sans">Bespoke Service</Link></li>
-                            <li><Link href="#" className="text-gold-100/40 hover:text-gold-500 text-xs uppercase tracking-widest transition-colors font-sans">World of Aurelia</Link></li>
-                        </ul>
-                    </div>
-
-                    {/* Contact & Newsletter */}
-                    <div>
-                        <h4 className="text-white font-serif text-xl mb-6">Concierge</h4>
-                        <p className="text-gold-100/40 text-xs uppercase tracking-[0.2em] mb-4">Join Our Inner Circle</p>
-                        <div className="relative mb-8">
-                            <input
-                                type="email"
-                                placeholder="EMAIL ADDRESS"
-                                className="w-full bg-transparent border-b border-gold-500/30 py-3 text-xs tracking-widest outline-none focus:border-gold-500 transition-colors placeholder:text-gold-900/40"
-                            />
-                            <button className="absolute right-0 top-1/2 -translate-y-1/2 text-gold-500">
-                                <Mail size={18} />
-                            </button>
-                        </div>
-                        <ul className="space-y-4">
-                            <li><Link href="#" className="text-gold-100/40 hover:text-gold-500 text-xs uppercase tracking-widest transition-colors font-sans">Contact Us</Link></li>
-                            <li><Link href="#" className="text-gold-100/40 hover:text-gold-500 text-xs uppercase tracking-widest transition-colors font-sans">Shipping & Returns</Link></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="pt-12 border-t border-gold-500/10 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-[0.3em] text-gold-900/50">
-                    <p>© 2026 Aurelia Maison de Haute Joaillerie. All Rights Reserved.</p>
-                    <div className="flex space-x-8 mt-4 md:mt-0">
-                        <Link href="#" className="hover:text-gold-500">Privacy Policy</Link>
-                        <Link href="#" className="hover:text-gold-500">Terms of Use</Link>
-                    </div>
-                </div>
+  return (
+    <footer className="border-t border-gold-500/10 bg-matte-black pb-12 pt-32">
+      <div className="container mx-auto px-6">
+        <div className="mb-20 grid grid-cols-1 gap-12 md:grid-cols-4">
+          <div className="md:col-span-2">
+            <h2 className="mb-8 font-serif text-4xl uppercase tracking-widest gold-text-gradient">
+              Aurelia
+            </h2>
+            <p className="mb-8 max-w-sm font-cormorant text-lg leading-relaxed text-gold-100/50">
+              Curating brilliance since 1924. We are dedicated to the pursuit of beauty, quality,
+              and the world&apos;s most exceptional treasures.
+            </p>
+            <div className="flex space-x-6">
+              <Link href="#" className="text-gold-500 transition-colors hover:text-gold-300">
+                <Instagram size={20} />
+              </Link>
+              <Link href="#" className="text-gold-500 transition-colors hover:text-gold-300">
+                <Facebook size={20} />
+              </Link>
+              <Link href="#" className="text-gold-500 transition-colors hover:text-gold-300">
+                <Twitter size={20} />
+              </Link>
             </div>
-        </footer>
-    );
+          </div>
+
+          <div>
+            <h4 className="mb-6 font-serif text-xl text-white">Boutique</h4>
+            <ul className="space-y-4">
+              <li>
+                <Link
+                  href={ROUTES.shop}
+                  className="font-sans text-xs uppercase tracking-widest text-gold-100/40 transition-colors hover:text-gold-500"
+                >
+                  Shop All
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={ROUTES.collections}
+                  className="font-sans text-xs uppercase tracking-widest text-gold-100/40 transition-colors hover:text-gold-500"
+                >
+                  Collections
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={ROUTES.wishlist}
+                  className="font-sans text-xs uppercase tracking-widest text-gold-100/40 transition-colors hover:text-gold-500"
+                >
+                  Wishlist
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={ANCHORS.story}
+                  className="font-sans text-xs uppercase tracking-widest text-gold-100/40 transition-colors hover:text-gold-500"
+                >
+                  Our Story
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="mb-6 font-serif text-xl text-white">Concierge</h4>
+            <p className="mb-4 text-xs uppercase tracking-[0.2em] text-gold-100/40">
+              Join Our Inner Circle
+            </p>
+            <Input
+              type="email"
+              placeholder="EMAIL ADDRESS"
+              rightElement={
+                <button type="button" className="text-gold-500" aria-label="Subscribe">
+                  <Mail size={18} />
+                </button>
+              }
+              className="mb-8"
+            />
+            <ul className="space-y-4">
+              <li>
+                <Link
+                  href={ROUTES.account}
+                  className="font-sans text-xs uppercase tracking-widest text-gold-100/40 transition-colors hover:text-gold-500"
+                >
+                  My Account
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={ROUTES.orders}
+                  className="font-sans text-xs uppercase tracking-widest text-gold-100/40 transition-colors hover:text-gold-500"
+                >
+                  Order History
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={ROUTES.wholesale}
+                  className="font-sans text-xs uppercase tracking-widest text-gold-100/40 transition-colors hover:text-gold-500"
+                >
+                  Wholesale Portal
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center justify-between border-t border-gold-500/10 pt-12 text-[10px] uppercase tracking-[0.3em] text-gold-900/50 md:flex-row">
+          <p>© 2026 Aurelia Maison de Haute Joaillerie. All Rights Reserved.</p>
+          <div className="mt-4 flex space-x-8 md:mt-0">
+            <Link href="#" className="hover:text-gold-500">
+              Privacy Policy
+            </Link>
+            <Link href="#" className="hover:text-gold-500">
+              Terms of Use
+            </Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }

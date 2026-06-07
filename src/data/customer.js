@@ -1,0 +1,36 @@
+export const MOCK_CUSTOMER = {
+  id: "cust_8f2a91",
+  firstName: "Victoria",
+  lastName: "Harrison",
+  email: "v.harrison@private.collection",
+  phone: "+41 22 555 0192",
+  memberSince: "2019",
+  tier: "Maison Privée",
+  addresses: [
+    {
+      id: "addr_1",
+      label: "Primary Residence",
+      line1: "12 Rue du Rhône",
+      line2: "Penthouse III",
+      city: "Geneva",
+      postalCode: "1204",
+      country: "Switzerland",
+      isDefault: true,
+    },
+    {
+      id: "addr_2",
+      label: "Paris Atelier",
+      line1: "45 Avenue Montaigne",
+      line2: "",
+      city: "Paris",
+      postalCode: "75008",
+      country: "France",
+      isDefault: false,
+    },
+  ],
+  preferences: {
+    newsletter: true,
+    appointments: true,
+    newArrivals: true,
+  },
+};

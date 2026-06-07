@@ -2,7 +2,9 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
+import { ROUTES } from "@/constants/routes";
 
 export default function Hero() {
     const containerRef = useRef(null);
@@ -67,15 +69,21 @@ export default function Hero() {
                         transition={{ delay: 1.2, duration: 0.8 }}
                         className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8"
                     >
-                        <button className="relative group overflow-hidden px-10 py-5 bg-gold-600 text-black font-sans text-xs uppercase tracking-[0.3em] font-bold transition-all hover:bg-gold-500 luxury-shadow w-full sm:w-auto">
+                        <Link
+                            href={ROUTES.shop}
+                            className="relative group overflow-hidden px-10 py-5 bg-gold-600 text-black font-sans text-xs uppercase tracking-[0.3em] font-bold transition-all hover:bg-gold-500 luxury-shadow w-full sm:w-auto text-center"
+                        >
                             Explore Collection
                             <motion.div
                                 className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-700"
                             />
-                        </button>
-                        <button className="px-10 py-5 border border-gold-500/30 text-gold-500 font-sans text-xs uppercase tracking-[0.3em] hover:bg-gold-500/10 transition-all w-full sm:w-auto">
-                            Book Appointment
-                        </button>
+                        </Link>
+                        <Link
+                            href={ROUTES.collections}
+                            className="px-10 py-5 border border-gold-500/30 text-gold-500 font-sans text-xs uppercase tracking-[0.3em] hover:bg-gold-500/10 transition-all w-full sm:w-auto text-center"
+                        >
+                            View Collections
+                        </Link>
                     </motion.div>
                 </div>
             </div>

@@ -2,10 +2,17 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { Diamond, Gem } from "@/components/Icons";
+import { useAppDispatch } from "@/redux/hooks";
+import { setShopMode, SHOP_MODES } from "@/redux/slices/shopModeSlice";
+import { saveShopModeToStorage } from "@/services/storage/shopModeStorage";
+import { ROUTES } from "@/constants/routes";
 
 export default function ShopModal() {
     const [isOpen, setIsOpen] = useState(false);
+    const dispatch = useAppDispatch();
+    const router = useRouter();
 
     useEffect(() => {
         const hasSeenModal = sessionStorage.getItem("hasSeenShopModal");
@@ -15,9 +22,12 @@ export default function ShopModal() {
         }
     }, []);
 
-    const handleSelection = () => {
+    const handleSelection = (mode, href) => {
         sessionStorage.setItem("hasSeenShopModal", "true");
+        dispatch(setShopMode(mode));
+        saveShopModeToStorage({ mode, hasSelectedMode: true });
         setIsOpen(false);
+        if (href) router.push(href);
     };
 
     return (
@@ -29,7 +39,7 @@ export default function ShopModal() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         className="absolute inset-0 bg-black/80 backdrop-blur-md"
-                        onClick={handleSelection}
+                        onClick={() => handleSelection(SHOP_MODES.RETAIL)}
                     />
 
                     <motion.div
@@ -51,7 +61,7 @@ export default function ShopModal() {
                             <motion.button
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
-                                onClick={handleSelection}
+                                onClick={() => handleSelection(SHOP_MODES.WHOLESALE, ROUTES.wholesale)}
                                 className="group relative p-8 glass gold-border-glow text-left overflow-hidden"
                             >
                                 <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
@@ -72,7 +82,7 @@ export default function ShopModal() {
                             <motion.button
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
-                                onClick={handleSelection}
+                                onClick={() => handleSelection(SHOP_MODES.RETAIL, ROUTES.shop)}
                                 className="group relative p-8 glass gold-border-glow text-left overflow-hidden"
                             >
                                 <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
@@ -91,7 +101,7 @@ export default function ShopModal() {
                         </div>
 
                         <button
-                            onClick={handleSelection}
+                            onClick={() => handleSelection(SHOP_MODES.RETAIL)}
                             className="mt-12 text-gold-500/40 hover:text-gold-500 text-xs uppercase tracking-widest transition-colors"
                         >
                             Skip and browse all
