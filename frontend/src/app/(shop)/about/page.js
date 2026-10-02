@@ -40,7 +40,7 @@ export default function AboutPage() {
                     <FadeIn>
                         <h2 className="text-3xl font-serif text-white uppercase tracking-wider mb-8">The Philosophy</h2>
                         <p className="text-gold-100/60 leading-relaxed font-cormorant text-xl italic">
-                            "We believe that true luxury is found in the details—those infinitesimal moments where light meets metal, and soul meets story."
+                            &ldquo;We believe that true luxury is found in the details&mdash;those infinitesimal moments where light meets metal, and soul meets story.&rdquo;
                         </p>
                     </FadeIn>
                 </div>

@@ -44,7 +44,7 @@ export default function BrandStory() {
                         </h3>
                         <div className="space-y-6 text-gold-100/60 font-cormorant text-lg md:text-xl leading-relaxed">
                             <p>
-                                Founded in the heart of Geneva, Aurelia began as a small boutique atelier dedicated to the pursuit of perfection. For three generations, we have mastered the art of transformation—taking the world's rarest materials and breathing life into them.
+                                Founded in the heart of Geneva, Aurelia began as a small boutique atelier dedicated to the pursuit of perfection. For three generations, we have mastered the art of transformation&mdash;taking the world&apos;s rarest materials and breathing life into them.
                             </p>
                             <p>
                                 Every Aurelia piece is a dialogue between tradition and innovation. Our master artisans combine century-old techniques with modern precision to create jewelry that transcends time.

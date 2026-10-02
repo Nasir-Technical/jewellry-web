@@ -19,8 +19,7 @@ export default function SignupPage() {
             setError("Passwords do not match");
             return;
         }
-        // Mock registration
-        console.log("Signup attempt:", formData);
+        setError("Account creation is not connected to the authentication service yet.");
     };
 
     return (

@@ -36,7 +36,7 @@ export function Testimonials() {
                             className="p-12 glass gold-border-glow border-gold-500/20 relative"
                         >
                             <p className="text-gold-100/70 font-cormorant text-2xl italic leading-relaxed mb-8">
-                                "{rev.content}"
+                                &ldquo;{rev.content}&rdquo;
                             </p>
                             <div>
                                 <p className="text-gold-400 font-serif text-xl">{rev.name}</p>

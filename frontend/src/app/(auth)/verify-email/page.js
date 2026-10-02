@@ -19,7 +19,7 @@ export default function VerifyEmailPage() {
                         </div>
                     </div>
                     <p className="text-sm tracking-widest text-white leading-relaxed">
-                        We've sent a verification link to your inbox. Please follow the instructions to activate your account.
+                        We&apos;ve sent a verification link to your inbox. Please follow the instructions to activate your account.
                     </p>
                 </CardBody>
                 <CardFooter className="text-center flex flex-col space-y-4">

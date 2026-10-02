@@ -8,13 +8,23 @@ import AuthLayout from "@/components/layout/AuthLayout";
 export default function ResetPasswordPage() {
     const [formData, setFormData] = useState({ password: "", confirmPassword: "" });
     const [isSuccess, setIsSuccess] = useState(false);
+    const [error, setError] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (formData.password === formData.confirmPassword) {
-            setIsSuccess(true);
-            console.log("Password reset successfully");
+
+        if (!formData.password) {
+            setError("Please enter a new password");
+            return;
         }
+
+        if (formData.password !== formData.confirmPassword) {
+            setError("Passwords do not match");
+            return;
+        }
+
+        setError("");
+        setIsSuccess(true);
     };
 
     return (
@@ -40,6 +50,7 @@ export default function ResetPasswordPage() {
                                 placeholder="••••••••"
                                 value={formData.confirmPassword}
                                 onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
+                                error={error}
                             />
                             <Button type="submit" variant="primary" className="w-full mt-4">
                                 Update Password

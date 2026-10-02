@@ -8,16 +8,14 @@ export const API_ENDPOINTS = {
   },
   products: {
     list: "/products",
-    detail: (id) => `/products/${id}`,
-    search: "/products/search",
+    detail: (slug) => `/products/${slug}`,
+    search: "/products",
   },
   cart: {
     base: "/cart",
-    sync: "/cart/sync",
   },
   orders: {
-    list: "/orders",
-    detail: (id) => `/orders/${id}`,
+    list: "/orders/my-orders",
     create: "/orders",
   },
   wishlist: {

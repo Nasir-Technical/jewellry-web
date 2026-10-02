@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Container } from "@/components/layout";
 import { CartSummary } from "@/features/cart/components";
@@ -48,6 +48,17 @@ export default function CheckoutPage() {
     cvv: "•••",
   });
 
+  const redirectTimeoutRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (redirectTimeoutRef.current !== null) {
+        clearTimeout(redirectTimeoutRef.current);
+        redirectTimeoutRef.current = null;
+      }
+    };
+  }, []);
+
   if (items.length === 0) {
     return (
       <Container className="py-24 text-center">
@@ -78,7 +89,8 @@ export default function CheckoutPage() {
     setIsSubmitting(true);
     dispatch(setCheckoutStep(4));
 
-    setTimeout(() => {
+    redirectTimeoutRef.current = setTimeout(() => {
+      redirectTimeoutRef.current = null;
       dispatch(clearCart());
       dispatch(resetCheckout());
       dispatch(showToast({ type: "success", message: "Order placed successfully" }));

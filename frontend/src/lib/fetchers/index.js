@@ -1,7 +1,7 @@
 const DEFAULT_REVALIDATE = 60;
 
 export async function serverFetch(path, options = {}) {
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001/api";
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5000/api/v1";
   const { revalidate = DEFAULT_REVALIDATE, ...fetchOptions } = options;
 
   const response = await fetch(`${baseUrl}${path}`, {

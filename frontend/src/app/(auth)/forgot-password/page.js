@@ -13,7 +13,6 @@ export default function ForgotPasswordPage() {
         e.preventDefault();
         if (email) {
             setIsSubmitted(true);
-            console.log("Password reset requested for:", email);
         }
     };
 

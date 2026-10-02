@@ -1,9 +1,10 @@
 const jwt = require('jsonwebtoken');
+const { getJwtSecret } = require('../config/env');
 
 const generateAccessToken = (user) => {
     return jwt.sign(
         { id: user._id, role: user.role },
-        process.env.JWT_SECRET || 'fallback_secret',
+        getJwtSecret(),
         { expiresIn: '15m' }
     );
 };
@@ -11,22 +12,40 @@ const generateAccessToken = (user) => {
 const generateRefreshToken = (user) => {
     return jwt.sign(
         { id: user._id },
-        process.env.JWT_SECRET || 'fallback_secret',
+        getJwtSecret(),
         { expiresIn: '7d' }
     );
 };
 
 const verifyAccessToken = (token) => {
+    let secret;
+
     try {
-        return jwt.verify(token, process.env.JWT_SECRET || 'fallback_secret');
+        secret = getJwtSecret();
+    } catch (error) {
+        error.statusCode = 500;
+        throw error;
+    }
+
+    try {
+        return jwt.verify(token, secret);
     } catch (error) {
         return null;
     }
 };
 
 const verifyRefreshToken = (token) => {
+    let secret;
+
     try {
-        return jwt.verify(token, process.env.JWT_SECRET || 'fallback_secret');
+        secret = getJwtSecret();
+    } catch (error) {
+        error.statusCode = 500;
+        throw error;
+    }
+
+    try {
+        return jwt.verify(token, secret);
     } catch (error) {
         return null;
     }

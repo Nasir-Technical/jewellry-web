@@ -15,8 +15,7 @@ export default function LoginPage() {
             setError("Please fill in all fields");
             return;
         }
-        // Mock validation
-        console.log("Login attempt:", formData);
+        setError("Sign in is not connected to the authentication service yet.");
     };
 
     return (
@@ -56,7 +55,7 @@ export default function LoginPage() {
                 </CardBody>
                 <CardFooter className="text-center flex flex-col space-y-4">
                     <p className="text-[10px] uppercase tracking-widest text-gold-900/60">
-                        Don't have an account?{" "}
+                        Don&apos;t have an account?{" "}
                         <Link href="/signup" title="Create Account" className="text-gold-500 hover:text-white transition-colors">
                             Create one
                         </Link>
